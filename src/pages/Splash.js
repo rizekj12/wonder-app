@@ -6,7 +6,7 @@ const { width, height } = Dimensions.get('window')
 export default class Splash extends Component {
     render() {
         setTimeout(() => {
-            this.props.navigation.navigate('FacebookLogin')
+            this.props.navigation.navigate('Registration')
           }, 3000)
         return (
             <View style = {styles.container}>

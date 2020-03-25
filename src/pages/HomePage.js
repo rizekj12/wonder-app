@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, ImageBackground, Dimensions } from 'react-native';
+import { View, StyleSheet, Text, ImageBackground, Dimensions, AsyncStorage } from 'react-native';
 import { Button } from 'react-native-elements';
-import { AsyncStorage } from 'react-native';
+import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 
 const { width, height } = Dimensions.get('window')
 
@@ -63,11 +63,8 @@ export default class HomePage extends Component {
                 <Text style = {styles.imageText}>{this.state.name}</Text>
             </ImageBackground>
 
-                <View style = {styles.dateSelector}>
-                    <Text>This is for the date selector for calendar</Text>
-                </View>
 
-                <View style = {styles.dateContainer}> 
+            <View style = {styles.dateSelector}> 
                     <Text style = {styles.dateHeader}>You're all set!</Text>
                     <Text style = {styles.dateFooter}>Let's create some schedule</Text>
                     <Button 
@@ -80,7 +77,43 @@ export default class HomePage extends Component {
                             marginVertical: 12
                         }}
                     />
-                </View>
+            </View>
+
+            <View style = {styles.dateContainer}>
+                <Calendar
+                    style={{
+                        borderWidth: 1,
+                        borderColor: 'gray',
+                        height: 350
+                        }}
+                        // Specify theme properties to override specific styles for calendar parts. Default = {}
+                    theme={{
+                        backgroundColor: '#ffffff',
+                        calendarBackground: '#ffffff',
+                        textSectionTitleColor: '#b6c1cd',
+                        selectedDayBackgroundColor: '#00adf5',
+                        selectedDayTextColor: '#ffffff',
+                        todayTextColor: '#00adf5',
+                        dayTextColor: '#2d4150',
+                        textDisabledColor: '#d9e1e8',
+                        dotColor: '#00adf5',
+                        selectedDotColor: '#ffffff',
+                        arrowColor: 'orange',
+                        disabledArrowColor: '#d9e1e8',
+                        monthTextColor: 'blue',
+                        indicatorColor: 'blue',
+                        // textDayFontFamily: 'monospace',
+                        // textMonthFontFamily: 'monospace',
+                        // textDayHeaderFontFamily: 'monospace',
+                        textDayFontWeight: '300',
+                        textMonthFontWeight: 'bold',
+                        textDayHeaderFontWeight: '300',
+                        textDayFontSize: 16,
+                        textMonthFontSize: 16,
+                        textDayHeaderFontSize: 16
+                    }}    
+                />
+            </View>
 
             </View>
         )

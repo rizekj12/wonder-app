@@ -14,7 +14,7 @@ import Signin from './src/pages/Signin'
 const SplashStack = createSwitchNavigator (
   {
     Splash,
-    FacebookLogin,
+    // FacebookLogin,
     Registration,
     Signin
   },
