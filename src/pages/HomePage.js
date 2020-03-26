@@ -31,6 +31,8 @@ export default class HomePage extends Component {
 
       state = {
           name: '',
+          date: null,
+          items: []
       }
 
       getData = async () => {
@@ -51,21 +53,31 @@ export default class HomePage extends Component {
         })
       }
 
-      componentDidUpdate(day){
-        console.log(day.dateString)
-        const daySelected=day.dateString;
-        return(
-            <Agenda
-                items={{
-                    daySelected:[]
-                }}
-            />
-        )
+      handleUpdate=(e)=>{
+        // console.log('this is inside handle: ', e);
 
+        this.setState({
+            date: e.dateString
+        })
+      }
+      componentDidUpdate(day){
+        // console.log(day)
+        const daySelected=day.dateString;
+
+        // this.setState({
+        //     date:daySelected
+        // })
+        // console.log(this.state);
+
+        // return(
+        //      alert(daySelected)
+        // )
       }
 
-
     render() {
+        console.log(this.state.date)
+        let date= this.state.date;
+        let items=this.state.items;
         return(
             <View style = {styles.container}>
             
@@ -95,11 +107,11 @@ export default class HomePage extends Component {
             <View style = {styles.dateContainer}>
                 <Agenda 
                     onDayPress={(day)=>{
-                        this.componentDidUpdate(day);
+                        this.handleUpdate(day);
                     }}
-                    
+
                     items={{
-                        
+                        date:items
                     }}
 
                     theme={{
