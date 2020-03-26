@@ -51,6 +51,19 @@ export default class HomePage extends Component {
         })
       }
 
+      componentDidUpdate(day){
+        console.log(day.dateString)
+        const daySelected=day.dateString;
+        return(
+            <Agenda
+                items={{
+                    daySelected:[]
+                }}
+            />
+        )
+
+      }
+
 
     render() {
         return(
@@ -66,7 +79,7 @@ export default class HomePage extends Component {
 
             <View style = {styles.dateSelector}> 
                     <Text style = {styles.dateHeader}>You're all set!</Text>
-                    <Text style = {styles.dateFooter}>Let's create some schedule</Text>
+                    {/* <Text style = {styles.dateFooter}>Let's create some schedule</Text>
                     <Button 
                         title = 'Add New'
                         buttonStyle = {{
@@ -76,42 +89,27 @@ export default class HomePage extends Component {
                             borderRadius: 25,
                             marginVertical: 12
                         }}
-                    />
+                    /> */}
             </View>
 
             <View style = {styles.dateContainer}>
-                <Calendar
-                    style={{
-                        borderWidth: 1,
-                        borderColor: 'gray',
-                        height: 350
-                        }}
-                        // Specify theme properties to override specific styles for calendar parts. Default = {}
+                <Agenda 
+                    onDayPress={(day)=>{
+                        this.componentDidUpdate(day);
+                    }}
+                    
+                    items={{
+                        
+                    }}
+
                     theme={{
-                        backgroundColor: '#ffffff',
-                        calendarBackground: '#ffffff',
-                        textSectionTitleColor: '#b6c1cd',
-                        selectedDayBackgroundColor: '#00adf5',
-                        selectedDayTextColor: '#ffffff',
-                        todayTextColor: '#00adf5',
-                        dayTextColor: '#2d4150',
-                        textDisabledColor: '#d9e1e8',
-                        dotColor: '#00adf5',
-                        selectedDotColor: '#ffffff',
-                        arrowColor: 'orange',
-                        disabledArrowColor: '#d9e1e8',
-                        monthTextColor: 'blue',
-                        indicatorColor: 'blue',
-                        // textDayFontFamily: 'monospace',
-                        // textMonthFontFamily: 'monospace',
-                        // textDayHeaderFontFamily: 'monospace',
-                        textDayFontWeight: '300',
-                        textMonthFontWeight: 'bold',
-                        textDayHeaderFontWeight: '300',
-                        textDayFontSize: 16,
-                        textMonthFontSize: 16,
-                        textDayHeaderFontSize: 16
-                    }}    
+                        agendaDayTextColor: 'black',
+                        agendaDayNumColor: 'green',
+                        agendaTodayColor: 'red',
+                        agendaKnobColor: 'blue'
+                      }}
+
+                    style={{}}
                 />
             </View>
 
