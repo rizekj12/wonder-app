@@ -3,6 +3,8 @@ import { View, StyleSheet, Text, ImageBackground, Dimensions, AsyncStorage } fro
 import { Button } from 'react-native-elements';
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 
+
+import moment from 'moment';
 const { width, height } = Dimensions.get('window')
 
 export default class HomePage extends Component {
@@ -31,8 +33,8 @@ export default class HomePage extends Component {
 
       state = {
           name: '',
-          date: null,
-          items: []
+          date: '',
+          itemsArr: []
       }
 
       getData = async () => {
@@ -45,11 +47,11 @@ export default class HomePage extends Component {
               console.log(error.message)
           }
       }
-      componentWillMount(){
+      UNSAFE_componentWillMount(){
         let name = this.props.navigation.getParam('profilename')
         console.log('this is in component will mount on Homepage', name)
         this.setState({
-          name: name,
+          name: name
         })
       }
 
@@ -75,9 +77,19 @@ export default class HomePage extends Component {
       }
 
     render() {
-        console.log(this.state.date)
-        let date= this.state.date;
-        let items=this.state.items;
+        // console.log(this.state.date.toString())
+        let currDate= this.state.date;
+        console.log(currDate);
+        let initialDay= moment().format('YYYY-MM-DD');
+        console.log(initialDay)
+        let itemsArr=this.state.itemsArr;
+        var pair = {
+            [currDate]: [itemsArr]
+        };
+        let itemsObj={[initialDay]:[]};
+        // console.log(itemsObj);
+
+        console.log('this is pair: ',pair)
         return(
             <View style = {styles.container}>
             
@@ -106,13 +118,14 @@ export default class HomePage extends Component {
 
             <View style = {styles.dateContainer}>
                 <Agenda 
+                    selected={initialDay}    
                     onDayPress={(day)=>{
                         this.handleUpdate(day);
                     }}
 
-                    items={{
-                        date:items
-                    }}
+                    items={
+                        {...itemsObj, ...pair}
+                    }
 
                     theme={{
                         agendaDayTextColor: 'black',
