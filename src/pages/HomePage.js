@@ -49,7 +49,7 @@ export default class HomePage extends Component {
       }
       UNSAFE_componentWillMount(){
         let name = this.props.navigation.getParam('profilename')
-        console.log('this is in component will mount on Homepage', name)
+        // console.log('this is in component will mount on Homepage', name)
         this.setState({
           name: name
         })
@@ -65,23 +65,30 @@ export default class HomePage extends Component {
       componentDidUpdate(day){
         // console.log(day)
         const daySelected=day.dateString;
-
-        // this.setState({
-        //     date:daySelected
-        // })
-        // console.log(this.state);
-
-        // return(
-        //      alert(daySelected)
-        // )
       }
+
+    //   testing new function that will render every hour slot in the day to render
+    // inside the ITEMS <Agenda /> component here I will also add the item state
+      dailyPlanner=()=>{
+// Moment.js built-in hour format can help build array in order to render a styled 
+// text area to fill
+        let dayStart=moment().local().startOf('day').format('hhmm A');
+        let dayEnd=moment().local().endOf('day').format('hhmm A');
+
+        // while (dayStart < dayEnd){
+            console.log(dayStart);
+            // moment(dayStart).add(1, 'h');
+        // }
+        // dayStart=moment(dayStart).add(1, 'h');
+        // console.log(dayStart);
+      };
 
     render() {
         // console.log(this.state.date.toString())
         let currDate= this.state.date;
-        console.log(currDate);
+        // console.log(currDate);
         let initialDay= moment().format('YYYY-MM-DD');
-        console.log(initialDay)
+        // console.log(initialDay)
         let itemsArr=this.state.itemsArr;
         var pair = {
             [currDate]: [itemsArr]
@@ -89,19 +96,19 @@ export default class HomePage extends Component {
         let itemsObj={[initialDay]:[]};
         // console.log(itemsObj);
 
-        console.log('this is pair: ',pair)
+        // console.log('this is pair: ',pair)
         return(
             <View style = {styles.container}>
             
-            <ImageBackground 
-                source = {require('../assets/homeCoffee.jpg')} 
-                style = {{width: width, height: 200,}}
-            >
-                <Text style = {styles.imageText}>{this.state.name}</Text>
-            </ImageBackground>
+                <ImageBackground 
+                    source = {require('../assets/homeCoffee.jpg')} 
+                    style = {{width: width, height: 200,}}
+                >
+                    <Text style = {styles.imageText}>{this.state.name}</Text>
+                </ImageBackground>
 
 
-            <View style = {styles.dateSelector}> 
+                <View style = {styles.dateSelector}> 
                     <Text style = {styles.dateHeader}>You're all set!</Text>
                     {/* <Text style = {styles.dateFooter}>Let's create some schedule</Text>
                     <Button 
@@ -114,29 +121,30 @@ export default class HomePage extends Component {
                             marginVertical: 12
                         }}
                     /> */}
-            </View>
+                </View>
 
-            <View style = {styles.dateContainer}>
-                <Agenda 
-                    selected={initialDay}    
-                    onDayPress={(day)=>{
-                        this.handleUpdate(day);
-                    }}
+                <View style = {styles.dateContainer}>
+                    <Agenda 
+                        selected={initialDay}    
+                        onDayPress={(day)=>{
+                            // this.handleUpdate(day);
+                            this.dailyPlanner();
+                        }}
 
-                    items={
-                        {...itemsObj, ...pair}
-                    }
+                        items={
+                            {...itemsObj, ...pair}
+                        }
 
-                    theme={{
-                        agendaDayTextColor: 'black',
-                        agendaDayNumColor: 'green',
-                        agendaTodayColor: 'red',
-                        agendaKnobColor: 'blue'
-                      }}
+                        theme={{
+                            agendaDayTextColor: 'black',
+                            agendaDayNumColor: 'green',
+                            agendaTodayColor: 'red',
+                            agendaKnobColor: 'blue'
+                        }}
 
-                    style={{}}
-                />
-            </View>
+                        style={{}}
+                    />
+                </View>
 
             </View>
         )
