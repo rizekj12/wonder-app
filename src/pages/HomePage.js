@@ -72,15 +72,24 @@ export default class HomePage extends Component {
       dailyPlanner=()=>{
 // Moment.js built-in hour format can help build array in order to render a styled 
 // text area to fill
-        let dayStart=moment().local().startOf('day').format('hhmm A');
-        let dayEnd=moment().local().endOf('day').format('hhmm A');
+        let dayStart=moment().local().startOf('day').format('HH A');
+        let dayEnd=moment().local().endOf('day').format('HH A');
 
-        // while (dayStart < dayEnd){
-            console.log(dayStart);
-            // moment(dayStart).add(1, 'h');
-        // }
-        // dayStart=moment(dayStart).add(1, 'h');
-        // console.log(dayStart);
+        let start=Number(dayStart);
+        let end=Number(dayEnd);
+
+        let hourlyArr=[]
+
+        for(let i=0;i<=23;i++){
+            hourlyArr.push(i);
+        }
+        // hourlyArr.forEach(e, {
+        //     this.render(){
+        //         return(
+        //             <Text>Test:</Text>
+        //         )
+        //     }
+        // })
       };
 
     render() {
