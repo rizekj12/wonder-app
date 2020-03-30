@@ -61,6 +61,7 @@ export default class HomePage extends Component {
         this.setState({
             date: e.dateString
         })
+        this.dailyPlanner(e);
       }
       componentDidUpdate(day){
         // console.log(day)
@@ -69,7 +70,7 @@ export default class HomePage extends Component {
 
     //   testing new function that will render every hour slot in the day to render
     // inside the ITEMS <Agenda /> component here I will also add the item state
-      dailyPlanner=()=>{
+      dailyPlanner=(e)=>{
 // Moment.js built-in hour format can help build array in order to render a styled 
 // text area to fill
         let dayStart=moment().local().startOf('day').format('HH A');
@@ -81,15 +82,20 @@ export default class HomePage extends Component {
         let hourlyArr=[]
 
         for(let i=0;i<=23;i++){
-            hourlyArr.push(i);
+            hourlyArr.push(
+                <Text>Test # {i}</Text>
+            );
         }
-        // hourlyArr.forEach(e, {
-        //     this.render(){
-        //         return(
-        //             <Text>Test:</Text>
-        //         )
-        //     }
-        // })
+
+        this.setState({
+            itemsArr: hourlyArr
+        })
+        // console.log(e, hourlyArr);
+        // return hourlyArr
+        //     hourlyArr.forEach(e=>{
+        //         <Text>Test:</Text>
+        //     })
+        // )
       };
 
     render() {
@@ -99,6 +105,7 @@ export default class HomePage extends Component {
         let initialDay= moment().format('YYYY-MM-DD');
         // console.log(initialDay)
         let itemsArr=this.state.itemsArr;
+        // console.log(itemsArr);
         var pair = {
             [currDate]: [itemsArr]
         };
@@ -136,13 +143,26 @@ export default class HomePage extends Component {
                     <Agenda 
                         selected={initialDay}    
                         onDayPress={(day)=>{
-                            // this.handleUpdate(day);
+                            this.handleUpdate(day);
                             this.dailyPlanner();
-                        }}
-
+                        }}                        
                         items={
                             {...itemsObj, ...pair}
+                            // {
+                            //     '2020-04-02': [{name: itemsArr}],
+                            //     '2020-04-03': [{name: itemsArr}],
+                            //     '2020-04-04': [],
+                            //     '2020-04-05': [{name: itemsArr}]
+                            // }
                         }
+                        // Specify how each item should be rendered in agenda
+                        // renderItem={(item, firstItemInDay) => {return (<View />);}}
+                        // Specify how each date should be rendered. day can be undefined if the item is not first in that day.
+                        renderDay={(day, item) => {
+                            return (
+                                <View><Text>{day.dateString} {item}</Text></View>
+                            );
+                        }}
 
                         theme={{
                             agendaDayTextColor: 'black',
