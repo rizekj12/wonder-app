@@ -1,64 +1,63 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
+import { api } from '../services/ApiConfig'
 import { StyleSheet, Text, View, KeyboardAvoidingView, StatusBar } from 'react-native';
 import { Button, Input } from 'react-native-elements';
 import { AsyncStorage } from 'react-native';
 
 export default class Registration extends Component {
     state = {
-        first_name: '',
-        last_name: '',
-        email: '',
-        password: '',
-        newId: '',
-        profilename: '',
-      }
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        newId: "",
+        profilename: "",
+        errorMsg: ""
+    }
 
-    //   handleSubmit() {
-    //       console.log('inside handleSubmit')
-    //     axios.post('http://localhost:3001/register/register/create', {
-    //         F_NAME: this.state.first_name,
-    //         L_NAME: this.state.last_name,
-    //         PASS_W: this.state.password,
-    //         EMAIL: this.state.email
-    //     }).then(res => {
-    //       console.log('this is res.data.user: ', res)
-    //       this.setState({
-    //         newId: res.data.user.id,
-    //         fireRedirect: true
-    //       })
-    //     })
-        //   this.setState ({
-        //     first_name: this.state.first_name,
-        //     last_name: this.state.last_name,
-        //     email: this.state.email,
-        //     password: this.state.password,
-        //   })
-        //   console.log(this.state.first_name)
-        //   console.log(this.state.last_name)
-        //   console.log(this.state.email)
-        //   console.log(this.state.password)
-    // }
-        
+    handleRegister = () => {
+        const {
+            firstName,
+            lastName,
+            email,
+            password
+        } = this.state;
+        const data = {
+            firstName,
+            lastName,
+            email,
+            password
+        }
+        console.log('inside handleRegister', data)
+        api
+            .post("/register", data)
+            .then(response =>
+                response.status === 201 ? this.props.navigation.navigate("HomePage") : this.state.errorMsg
+        )
+            .catch(() =>
+                this.setState({ errorMsg: "There was an error registering the account" })
+        );
+    }
 
-
-    //   setData = async () => {
-    //     let results = await axios.put(`/register/register/create`, {
-    //         first_name: this.state.first_name,
-    //         last_name: this.state.last_name,
-    //         email: this.state.email,
-    //         password: this.state.password
-    //     }).then(res => {
-    //         console.log('this is res.data.user: ', res)
-    //         // this.setState({
-    //         //   newId: res.data.user.id,
-    //         //   fireRedirect: true
-    //         // })
-    //       })
-    //     let id = this.state.id
-    //     this.props.navigation.navigate('HomePage', { profilename: profileName })
-    //   }
-
+    handleLogin = () => {
+        const {
+            email,
+            password
+        } = this.state;
+        const data = {
+            email,
+            password
+        }
+        console.log('inside handleLogin', data)
+        api
+            .post("/login", data)
+            .then(response =>
+                response.status === 200 ? this.props.navigation.navigate("Signin") : this.state.errorMsg
+        )
+            .catch(() =>
+                this.setState({ errorMsg: "Your email and/or password do not match" })
+        );
+    }
     render() {
         return (
             <KeyboardAvoidingView  behavior = 'padding' style ={styles.container}>
@@ -73,13 +72,13 @@ export default class Registration extends Component {
                         containerStyle = {{
                             width: 300,
                         }}
-                        value = {this.state.first_name}
+                        value = {this.state.firstName}
                         style = {styles.input}
                         placeholder = 'First Name'
                         placeholderTextColor = 'black'
                         returnKeyType = 'next'
                         onSubmitEditing = {() => this.last_name.focus()}
-                        onChangeText= {(first_name) => this.setState({first_name})}
+                        onChangeText= {(firstName) => this.setState({firstName})}
                         autoCapitalize = 'words'
                         autoCorrect = {false}
                     />
@@ -87,13 +86,13 @@ export default class Registration extends Component {
                         containerStyle = {{
                             width: 300,
                         }}
-                        value = {this.state.last_name}
+                        value = {this.state.lastName}
                         style = {styles.input}
                         placeholder = 'Last Name'
                         placeholderTextColor = 'black'
                         returnKeyType = 'next'
                         onSubmitEditing = {() => this.email.focus()}
-                        onChangeText= {(last_name) => this.setState({last_name})}
+                        onChangeText= {(lastName) => this.setState({lastName})}
                         autoCapitalize = 'words'
                         autoCorrect = {false}
                     />
@@ -138,7 +137,7 @@ export default class Registration extends Component {
                             borderWidth: 2,
                             borderColor: 'white',
                         }}
-                        onPress = {() => {this.handleSubmit()}}
+                        onPress = {() => this.handleRegister()}
                     />
                     
                     {/*This is the sign up button*/}
@@ -156,8 +155,9 @@ export default class Registration extends Component {
                             marginTop: 10
                         }}
                         // testing how to change screens
-                        onPress={() => this.props.navigation.navigate('Signin')}
+                        onPress={() => this.handleLogin()}
                     />
+                    <Text>{this.state.errorMsg}</Text>
                 </View>
 
                 <View style = {styles.buttons}>
