@@ -1,11 +1,24 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, ImageBackground, Dimensions, AsyncStorage } from 'react-native';
-import { Button } from 'react-native-elements';
+import { Button, ListItem } from 'react-native-elements';
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 
+
+import moment from 'moment';
+import { TouchableOpacity, FlatList } from 'react-native-gesture-handler';
 const { width, height } = Dimensions.get('window')
 
-export default class HomePage extends Component {
+export default class HomePage extends React.Component {
+    constructor(props){
+        super(props);
+
+        this.state={
+            name:this.props.navigation.state.params.name,
+            date:moment().format('YYYY-MM-DD'),
+            itemsArr:this.props.navigation.state.params.itemsArr
+        }
+    }
+
     static navigationOptions = {
         title: 'My Schedule',
         headerStyle: {
@@ -13,117 +26,87 @@ export default class HomePage extends Component {
         },
         headerRight: (
             <Button
-            onPress={() => alert('This is a button!')}
-            title = {null}
-            color="#fff"
-            icon = {{
-                type: 'font-awesome',
-                name: 'plus',
-            }}
-            buttonStyle = {{
-                backgroundColor: 'transparent',
-                marginRight: 14.5,
-            }}
-          />
+                onPress={() => alert('This is a button!')}
+                title = {null}
+                color="#fff"
+                icon = {{
+                    type: 'font-awesome',
+                    name: 'plus',
+                }}
+                buttonStyle = {{
+                    backgroundColor: 'transparent',
+                    marginRight: 14.5,
+                }}
+            />
         ),
         headerLeft: null,
-      }
-
-      state = {
-          name: '',
-          date: null,
-          items: []
-      }
-
-      getData = async () => {
-          try {
-              await AsyncStorage.getItem('name')
-              if (name !== null) {
-                console.log(name);
-              }
-          } catch (error){
-              console.log(error.message)
-          }
-      }
-      componentWillMount(){
-        let name = this.props.navigation.getParam('profilename')
-        console.log('this is in component will mount on Homepage', name)
-        this.setState({
-          name: name,
-        })
-      }
-
-      handleUpdate=(e)=>{
-        // console.log('this is inside handle: ', e);
-
-        this.setState({
-            date: e.dateString
-        })
-      }
-      componentDidUpdate(day){
-        // console.log(day)
-        const daySelected=day.dateString;
-
-        // this.setState({
-        //     date:daySelected
-        // })
-        // console.log(this.state);
-
-        // return(
-        //      alert(daySelected)
-        // )
-      }
+    }
 
     render() {
-        console.log(this.state.date)
-        let date= this.state.date;
-        let items=this.state.items;
+        let currDate= this.state.date;
+        let itemsArr=this.state.itemsArr;
+        var pair = {
+            [currDate]: [itemsArr]
+        };
+        let itemsObj={[currDate]:[]};
         return(
             <View style = {styles.container}>
             
-            <ImageBackground 
-                source = {require('../assets/homeCoffee.jpg')} 
-                style = {{width: width, height: 200,}}
-            >
-                <Text style = {styles.imageText}>{this.state.name}</Text>
-            </ImageBackground>
+                <ImageBackground 
+                    source = {require('../assets/homeCoffee.jpg')} 
+                    style = {{width: width, height: 200,}}
+                >
+                    <Text style = {styles.imageText}>{this.state.name}</Text>
+                </ImageBackground>
 
 
-            <View style = {styles.dateSelector}> 
+                <View style = {styles.dateSelector}> 
                     <Text style = {styles.dateHeader}>You're all set!</Text>
-                    {/* <Text style = {styles.dateFooter}>Let's create some schedule</Text>
-                    <Button 
-                        title = 'Add New'
-                        buttonStyle = {{
-                            width: 200,
-                            alignSelf: 'center',
-                            backgroundColor: '#1AEC86',
-                            borderRadius: 25,
-                            marginVertical: 12
+                </View>
+
+                <View style = {styles.dateContainer}>
+                    <Agenda 
+                        selected={currDate}
+                        onDayPress={(day)=>{
+                            console.log(day);
+                            // let selected=day.dateString;
+                            // pair={
+                            //     [selected]:itemsArr
+                            // }
+                        }}                        
+                        items={
+                            {...itemsObj, ...pair}
+                        }
+                        renderDay={(day, item)=>{
+                            // console.log(moment().hour(23))
+                            return (
+                                <View>
+                                    <FlatList
+                                        data={item}
+                                        renderItem={({item})=> 
+                                        <TouchableOpacity
+                                            style={{
+                                                backgroundColor: 'white',
+                                                width: width,
+                                                borderColor: 'black',
+                                                height:75
+                                            }}
+                                        >{item}</TouchableOpacity>}
+                                    />
+                                </View>
+                            );
                         }}
-                    /> */}
-            </View>
 
-            <View style = {styles.dateContainer}>
-                <Agenda 
-                    onDayPress={(day)=>{
-                        this.handleUpdate(day);
-                    }}
+                        theme={{
+                            agendaDayTextColor: 'black',
+                            agendaDayNumColor: 'green',
+                            agendaTodayColor: 'red',
+                            agendaKnobColor: 'blue'
+                        }}
 
-                    items={{
-                        date:items
-                    }}
-
-                    theme={{
-                        agendaDayTextColor: 'black',
-                        agendaDayNumColor: 'green',
-                        agendaTodayColor: 'red',
-                        agendaKnobColor: 'blue'
-                      }}
-
-                    style={{}}
-                />
-            </View>
+                        style={{}}
+                    />
+                </View>
 
             </View>
         )
