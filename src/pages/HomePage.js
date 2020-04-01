@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, ImageBackground, Dimensions, AsyncStorage } from 'react-native';
-import { Button } from 'react-native-elements';
+import { Button, ListItem } from 'react-native-elements';
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 
 
 import moment from 'moment';
+import { TouchableOpacity, FlatList } from 'react-native-gesture-handler';
 const { width, height } = Dimensions.get('window')
 
-export default class HomePage extends Component {
+export default class HomePage extends React.Component {
+    constructor(props){
+        super(props);
+
+        this.state={
+            name:this.props.navigation.state.params.name,
+            date:moment().format('YYYY-MM-DD'),
+            itemsArr:this.props.navigation.state.params.itemsArr
+        }
+    }
+
     static navigationOptions = {
         title: 'My Schedule',
         headerStyle: {
@@ -15,104 +26,29 @@ export default class HomePage extends Component {
         },
         headerRight: (
             <Button
-            onPress={() => alert('This is a button!')}
-            title = {null}
-            color="#fff"
-            icon = {{
-                type: 'font-awesome',
-                name: 'plus',
-            }}
-            buttonStyle = {{
-                backgroundColor: 'transparent',
-                marginRight: 14.5,
-            }}
-          />
+                onPress={() => alert('This is a button!')}
+                title = {null}
+                color="#fff"
+                icon = {{
+                    type: 'font-awesome',
+                    name: 'plus',
+                }}
+                buttonStyle = {{
+                    backgroundColor: 'transparent',
+                    marginRight: 14.5,
+                }}
+            />
         ),
         headerLeft: null,
-      }
-
-      state = {
-          name: '',
-          date: '',
-          itemsArr: []
-      }
-
-      getData = async () => {
-          try {
-              await AsyncStorage.getItem('name')
-              if (name !== null) {
-                console.log(name);
-              }
-          } catch (error){
-              console.log(error.message)
-          }
-      }
-      UNSAFE_componentWillMount(){
-        let name = this.props.navigation.getParam('profilename')
-        // console.log('this is in component will mount on Homepage', name)
-        this.setState({
-          name: name
-        })
-      }
-
-      handleUpdate=(e)=>{
-        // console.log('this is inside handle: ', e);
-
-        this.setState({
-            date: e.dateString
-        })
-        this.dailyPlanner(e);
-      }
-      componentDidUpdate(day){
-        // console.log(day)
-        const daySelected=day.dateString;
-      }
-
-    //   testing new function that will render every hour slot in the day to render
-    // inside the ITEMS <Agenda /> component here I will also add the item state
-      dailyPlanner=(e)=>{
-// Moment.js built-in hour format can help build array in order to render a styled 
-// text area to fill
-        let dayStart=moment().local().startOf('day').format('HH A');
-        let dayEnd=moment().local().endOf('day').format('HH A');
-
-        let start=Number(dayStart);
-        let end=Number(dayEnd);
-
-        let hourlyArr=[]
-
-        for(let i=0;i<=23;i++){
-            hourlyArr.push(
-                <Text>Test # {i}</Text>
-            );
-        }
-
-        this.setState({
-            itemsArr: hourlyArr
-        })
-        // console.log(e, hourlyArr);
-        // return hourlyArr
-        //     hourlyArr.forEach(e=>{
-        //         <Text>Test:</Text>
-        //     })
-        // )
-      };
+    }
 
     render() {
-        // console.log(this.state.date.toString())
         let currDate= this.state.date;
-        // console.log(currDate);
-        let initialDay= moment().format('YYYY-MM-DD');
-        // console.log(initialDay)
         let itemsArr=this.state.itemsArr;
-        // console.log(itemsArr);
         var pair = {
             [currDate]: [itemsArr]
         };
-        let itemsObj={[initialDay]:[]};
-        // console.log(itemsObj);
-
-        // console.log('this is pair: ',pair)
+        let itemsObj={[currDate]:[]};
         return(
             <View style = {styles.container}>
             
@@ -126,41 +62,38 @@ export default class HomePage extends Component {
 
                 <View style = {styles.dateSelector}> 
                     <Text style = {styles.dateHeader}>You're all set!</Text>
-                    {/* <Text style = {styles.dateFooter}>Let's create some schedule</Text>
-                    <Button 
-                        title = 'Add New'
-                        buttonStyle = {{
-                            width: 200,
-                            alignSelf: 'center',
-                            backgroundColor: '#1AEC86',
-                            borderRadius: 25,
-                            marginVertical: 12
-                        }}
-                    /> */}
                 </View>
 
                 <View style = {styles.dateContainer}>
                     <Agenda 
-                        selected={initialDay}    
+                        selected={currDate}
                         onDayPress={(day)=>{
-                            this.handleUpdate(day);
-                            this.dailyPlanner();
+                            console.log(day);
+                            // let selected=day.dateString;
+                            // pair={
+                            //     [selected]:itemsArr
+                            // }
                         }}                        
                         items={
                             {...itemsObj, ...pair}
-                            // {
-                            //     '2020-04-02': [{name: itemsArr}],
-                            //     '2020-04-03': [{name: itemsArr}],
-                            //     '2020-04-04': [],
-                            //     '2020-04-05': [{name: itemsArr}]
-                            // }
                         }
-                        // Specify how each item should be rendered in agenda
-                        // renderItem={(item, firstItemInDay) => {return (<View />);}}
-                        // Specify how each date should be rendered. day can be undefined if the item is not first in that day.
-                        renderDay={(day, item) => {
+                        renderDay={(day, item)=>{
+                            // console.log(moment().hour(23))
                             return (
-                                <View><Text>{day.dateString} {item}</Text></View>
+                                <View>
+                                    <FlatList
+                                        data={item}
+                                        renderItem={({item})=> 
+                                        <TouchableOpacity
+                                            style={{
+                                                backgroundColor: 'white',
+                                                width: width,
+                                                borderColor: 'black',
+                                                height:75
+                                            }}
+                                        >{item}</TouchableOpacity>}
+                                    />
+                                </View>
                             );
                         }}
 
