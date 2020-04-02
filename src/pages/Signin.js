@@ -9,7 +9,7 @@ const { width, height } = Dimensions.get('window')
 export default class Signin extends Component {
   render() {
     // In order to initialize an empty scheduler in the Agenda component
-    // I've had to run the function in the previous screen IS THIS THE BEST METHOD??
+    // I've had to run the function in this screen IS THIS THE BEST METHOD??
     // and if so should it be in a better lifecycle method...
       let emptyAgendaCreation=(
         Template=()=>{

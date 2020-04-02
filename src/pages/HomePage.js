@@ -24,7 +24,7 @@ export default class HomePage extends React.Component {
         headerStyle: {
           backgroundColor: '#30EA8A',
         },
-        headerRight: (
+        headerRight: ()=>{(
             <Button
                 onPress={() => alert('This is a button!')}
                 title = {null}
@@ -38,8 +38,8 @@ export default class HomePage extends React.Component {
                     marginRight: 14.5,
                 }}
             />
-        ),
-        headerLeft: null,
+        )},
+        headerLeft:()=>{null},
     }
 
     render() {
