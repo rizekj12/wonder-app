@@ -22,6 +22,7 @@ export default class Registration extends Component {
             email,
             password
         } = this.state;
+        
         const data = {
             firstName,
             lastName,
@@ -32,7 +33,9 @@ export default class Registration extends Component {
         api
             .post("/register", data)
             .then(response =>
-                response.status === 201 ? this.props.navigation.navigate("HomePage") : this.state.errorMsg
+                response.status === 201 ? this.props.navigation.navigate("HomePage", {
+                    name:data.firstName
+                }) : this.state.errorMsg
         )
             .catch(() =>
                 this.setState({ errorMsg: "There was an error registering the account" })
