@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { api } from '../services/ApiConfig'
-import { StyleSheet, Text, View, KeyboardAvoidingView, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, KeyboardAvoidingView, StatusBar, AsyncStorage } from 'react-native';
 import { Button, Input } from 'react-native-elements';
-import { AsyncStorage } from 'react-native';
+
+// IMPORT PATHS
+import emptyDailyAgenda from '../components/emptyDailyAgenda';
 
 export default class Registration extends Component {
     state = {
@@ -32,9 +34,13 @@ export default class Registration extends Component {
         console.log('inside handleRegister', data)
         api
             .post("/register", data)
+// ****************************************************************************************************
+// we need a fail safe for when a client is already registered and re-registers with same
+// EMAIL theres a bug when this happens
             .then(response =>
                 response.status === 201 ? this.props.navigation.navigate("HomePage", {
-                    name:data.firstName
+                    name:data.firstName,
+                    itemsArr:emptyDailyAgenda
                 }) : this.state.errorMsg
         )
             .catch(() =>

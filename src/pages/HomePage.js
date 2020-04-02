@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, ImageBackground, Dimensions, AsyncStorage } from 'react-native';
+import { View, StyleSheet, Text, ImageBackground, Dimensions, ScrollView, TextInput, AsyncStorage } from 'react-native';
 import { Button, ListItem } from 'react-native-elements';
-import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
+import {Agenda} from 'react-native-calendars';
 
 
 import moment from 'moment';
@@ -49,6 +49,8 @@ export default class HomePage extends React.Component {
             [currDate]: [itemsArr]
         };
         let itemsObj={[currDate]:[]};
+
+        let selectedDate;
         return(
             <View style = {styles.container}>
             
@@ -60,50 +62,89 @@ export default class HomePage extends React.Component {
                 </ImageBackground>
 
 
-                <View style = {styles.dateSelector}> 
+                {/* <View style = {styles.dateSelector}> 
                     <Text style = {styles.dateHeader}>You're all set!</Text>
-                </View>
+                </View> */}
 
                 <View style = {styles.dateContainer}>
                     <Agenda 
                         selected={currDate}
-                        onDayPress={(day)=>{
-                            console.log(day);
-                            // let selected=day.dateString;
-                            // pair={
-                            //     [selected]:itemsArr
-                            // }
-                        }}                        
+                        loadItemsForMonth={(month) => {
+                            // This prop gets triggered during scrolling potential to drive up
+                            // API cost
+                            // console.log('API CALL PROBABLY SHOULD HAPPEN HERE TO COLLECT ALL DATA')
+                        }}
+                        pastScrollRange={3}
+                        futureScrollRange={3}
+                        onDayPress={(day)=>{selectedDate=day}}                      
                         items={
                             {...itemsObj, ...pair}
                         }
                         renderDay={(day, item)=>{
-                            // console.log(moment().hour(23))
+                            // I dont like that ITEM written above is the entire arr(this.state.itermArr)
+                            // hence why below we are iterating through state
+                            // this prop assumes only to render one item per day....IS THIS THE BEST WAY???
                             return (
                                 <View>
-                                    <FlatList
-                                        data={item}
-                                        renderItem={({item})=> 
-                                        <TouchableOpacity
-                                            style={{
-                                                backgroundColor: 'white',
-                                                width: width,
-                                                borderColor: 'black',
-                                                height:75
-                                            }}
-                                        >{item}</TouchableOpacity>}
-                                    />
+                                    <View style={{alignItems:'center',backgroundColor:'white'}}>
+                                        <Text style={{fontSize:41}}>{moment(day.dateString).format('Do')}</Text>
+                                        <Text style={{fontSize:20}}>{moment(day.dayString).format('MMM')}</Text>
+                                    </View>
+                                    <ScrollView>
+                                        {itemsArr.map((item, index)=>                                            
+                                            <TouchableOpacity
+                                                key={index}
+                                                style={{
+                                                    backgroundColor: 'white',
+                                                    width: width,
+                                                    borderColor: 'black',
+                                                    height:75
+                                                }}>
+                                                {item}
+                                                <TextInput 
+                                                    placeholder={"...What's happenin"}
+                                                    
+                                                />
+                                            </TouchableOpacity>
+                                        )}
+                                    </ScrollView>
                                 </View>
                             );
                         }}
-
+                        renderEmptyData={()=>{
+                            return(
+                                <View>
+                                    <View style={{alignItems:'center',backgroundColor:'white'}}>
+                                        <Text style={{fontSize:41}}>{moment(selectedDate.dateString).format('Do')}</Text>
+                                        <Text style={{fontSize:20}}>{moment(selectedDate.dateString).format('MMM')}</Text>
+                                    </View>
+                                    <ScrollView>
+                                        {itemsArr.map((item, index)=>                                            
+                                            <TouchableOpacity
+                                                key={index}
+                                                style={{
+                                                    backgroundColor: 'white',
+                                                    width: width,
+                                                    borderColor: 'black',
+                                                    height:75
+                                                }}>
+                                                {item}
+                                                <TextInput 
+                                                    placeholder={"...What's happenin"}
+                                                    
+                                                />
+                                                </TouchableOpacity>
+                                        )}
+                                    </ScrollView>
+                                </View>
+                            )
+                        }}
                         theme={{
                             agendaDayTextColor: 'black',
                             agendaDayNumColor: 'green',
                             agendaTodayColor: 'red',
                             agendaKnobColor: 'blue'
                         }}
-
                         style={{}}
                     />
                 </View>

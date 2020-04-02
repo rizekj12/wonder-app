@@ -1,37 +1,15 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, KeyboardAvoidingView, StatusBar, Dimensions } from 'react-native';
 import { Button, Input } from 'react-native-elements';
-import axios from 'axios'
-import moment from 'moment';
+
+// IMPORT PATHS
+import emptyDailyAgenda from '../components/emptyDailyAgenda';
 
 const { width, height } = Dimensions.get('window')
 
 export default class Signin extends Component {
   render() {
-    // In order to initialize an empty scheduler in the Agenda component
-    // I've had to run the function in this screen IS THIS THE BEST METHOD??
-    // and if so should it be in a better lifecycle method...
-      let emptyAgendaCreation=(
-        Template=()=>{
-          let hourlyArr=[]
-    
-            for(let i=0;i<=23;i++){
-                hourlyArr.push(
-                    <Text
-                      key={i}
-                      style={{
-                        fontSize:21,
-                        
-                      }}>{moment(`${i}`,'HH').format('hh:00 A')}
-                    </Text>
-                );
-            };
-          return hourlyArr;
-          }
-      )();
-
-
-      return(
+    return(
         <KeyboardAvoidingView behavior='padding' style={styles.container}>
         <StatusBar barStyle = 'light-content' />
           <View style = {styles.formContainer}>
@@ -65,7 +43,7 @@ export default class Signin extends Component {
               }}
               onPress = {() => {this.props.navigation.navigate('HomePage',{
                 name:'',
-                itemsArr: emptyAgendaCreation
+                itemsArr: emptyDailyAgenda
               })}}
             />
           </View>
