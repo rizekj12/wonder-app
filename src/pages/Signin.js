@@ -3,7 +3,8 @@ import { StyleSheet, Text, View, KeyboardAvoidingView, StatusBar, Dimensions } f
 import { Button, Input } from 'react-native-elements';
 
 // IMPORT PATHS
-import emptyDailyAgenda from '../components/emptyDailyAgenda';
+// import EmptyDailyAgenda from '../components/EmptyDailyAgenda';
+import SignInScreenForm from '../components/SignInScreenForm';
 
 const { width, height } = Dimensions.get('window')
 
@@ -12,41 +13,30 @@ export default class Signin extends Component {
     return(
         <KeyboardAvoidingView behavior='padding' style={styles.container}>
         <StatusBar barStyle = 'light-content' />
+          
           <View style = {styles.formContainer}>
-            <Input 
-              containerStyle={{
-              width: 300,
-              }}
-              style={styles.input}
-              placeholder='email'
-              placeholderTextColor='black'
-            />
-            <Input 
-              containerStyle = {{
-                width: 300,
-              }}
-              style={styles.input}
-              placeholder={'password'}
-              placeholderTextColor='black'
-            />
+            <SignInScreenForm />
+            
             <Button 
-              title='Log In'
-              titleStyle = {{
-                color: 'white',
-                fontWeight: 'bold',
-              }}
-              buttonStyle = {{
-                  backgroundColor: 'transparent',
-                  borderRadius: 25,
-                  borderWidth: 2,
-                  borderColor: 'white',
-              }}
-              onPress = {() => {this.props.navigation.navigate('HomePage',{
-                name:'',
-                itemsArr: emptyDailyAgenda
-              })}}
+                title='Log In'
+                titleStyle = {{
+                    color: 'white',
+                    fontWeight: 'bold',
+                }}
+                buttonStyle = {{
+                    backgroundColor: 'transparent',
+                    borderRadius: 25,
+                    borderWidth: 2,
+                    borderColor: 'white',
+                }}
+                onPress = {() => {this.props.navigation.navigate('HomePage',{
+                        name:'',
+                        // itemsArr: Empty24HrCreation
+                    })
+                }}
             />
           </View>
+          
           <View style={styles.buttons}>
             <Button 
               onPress={() => this.props.navigation.navigate('Registration')}
@@ -64,7 +54,7 @@ export default class Signin extends Component {
                 type: 'font-awesome',
                 name: 'arrow-left',
                 size: 15,
-            }}
+              }}
             />
           </View>
         </KeyboardAvoidingView>
@@ -81,16 +71,6 @@ const styles = StyleSheet.create({
   headerText: {
       fontSize: 30,
       fontWeight: 'bold'
-  },
-  formContainer:{
-      justifyContent: 'space-around',
-      marginHorizontal: 50,
-      height: 300,
-  },
-  input: {
-      backgroundColor: 'transparent',
-      borderColor: 'black',
-      width: 100,
   },
   passwordText:{
       color: '#494C4A',

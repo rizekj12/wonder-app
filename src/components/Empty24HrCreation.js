@@ -10,7 +10,7 @@ import moment from 'moment';
 // In order to initialize an empty scheduler in the Agenda component
 // I've had to run the function IS THIS THE BEST METHOD??
 // and if so should it be in a better lifecycle method...
-let emptyDailyAgenda=(
+let Empty24HrCreation=(
         Template=()=>{
           let hourlyArr=[];
             
@@ -27,4 +27,4 @@ let emptyDailyAgenda=(
         }
 )();
 
-export default emptyDailyAgenda;
+export default Empty24HrCreation;

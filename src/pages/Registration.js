@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, KeyboardAvoidingView, StatusBar, AsyncStorage }
 import { Button, Input } from 'react-native-elements';
 
 // IMPORT PATHS
-import emptyDailyAgenda from '../components/emptyDailyAgenda';
+import Empty24HrCreation from '../components/Empty24HrCreation';
 
 export default class Registration extends Component {
     state = {
@@ -40,7 +40,7 @@ export default class Registration extends Component {
             .then(response =>
                 response.status === 201 ? this.props.navigation.navigate("HomePage", {
                     name:data.firstName,
-                    itemsArr:emptyDailyAgenda
+                    itemsArr:Empty24HrCreation
                 }) : this.state.errorMsg
         )
             .catch(() =>

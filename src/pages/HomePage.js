@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, ImageBackground, Dimensions, ScrollView, TextInput, AsyncStorage } from 'react-native';
+import { View, StyleSheet, Text, ImageBackground, Dimensions} from 'react-native';
 import { Button, ListItem } from 'react-native-elements';
 import {Agenda} from 'react-native-calendars';
-
-
 import moment from 'moment';
-import { TouchableOpacity, FlatList } from 'react-native-gesture-handler';
+
 const { width, height } = Dimensions.get('window')
+
+import EmptyDailyPlanner from '../components/EmptyDailyPlanner';
 
 export default class HomePage extends React.Component {
     constructor(props){
@@ -15,7 +15,7 @@ export default class HomePage extends React.Component {
         this.state={
             name:this.props.navigation.state.params.name,
             date:moment().format('YYYY-MM-DD'),
-            itemsArr:this.props.navigation.state.params.itemsArr
+            //itemsArr: //this.props.navigation.state.params.itemsArr
         }
     }
 
@@ -61,11 +61,6 @@ export default class HomePage extends React.Component {
                     <Text style = {styles.imageText}>{this.state.name}</Text>
                 </ImageBackground>
 
-
-                {/* <View style = {styles.dateSelector}> 
-                    <Text style = {styles.dateHeader}>You're all set!</Text>
-                </View> */}
-
                 <View style = {styles.dateContainer}>
                     <Agenda 
                         selected={currDate}
@@ -90,24 +85,9 @@ export default class HomePage extends React.Component {
                                         <Text style={{fontSize:41}}>{moment(day.dateString).format('Do')}</Text>
                                         <Text style={{fontSize:20}}>{moment(day.dayString).format('MMM')}</Text>
                                     </View>
-                                    <ScrollView>
-                                        {itemsArr.map((item, index)=>                                            
-                                            <TouchableOpacity
-                                                key={index}
-                                                style={{
-                                                    backgroundColor: 'white',
-                                                    width: width,
-                                                    borderColor: 'black',
-                                                    height:75
-                                                }}>
-                                                {item}
-                                                <TextInput 
-                                                    placeholder={"...What's happenin"}
-                                                    
-                                                />
-                                            </TouchableOpacity>
-                                        )}
-                                    </ScrollView>
+                                    <View>
+                                        <EmptyDailyPlanner />
+                                    </View>
                                 </View>
                             );
                         }}
@@ -118,24 +98,9 @@ export default class HomePage extends React.Component {
                                         <Text style={{fontSize:41}}>{moment(selectedDate.dateString).format('Do')}</Text>
                                         <Text style={{fontSize:20}}>{moment(selectedDate.dateString).format('MMM')}</Text>
                                     </View>
-                                    <ScrollView>
-                                        {itemsArr.map((item, index)=>                                            
-                                            <TouchableOpacity
-                                                key={index}
-                                                style={{
-                                                    backgroundColor: 'white',
-                                                    width: width,
-                                                    borderColor: 'black',
-                                                    height:75
-                                                }}>
-                                                {item}
-                                                <TextInput 
-                                                    placeholder={"...What's happenin"}
-                                                    
-                                                />
-                                                </TouchableOpacity>
-                                        )}
-                                    </ScrollView>
+                                    <View>
+                                        <EmptyDailyPlanner />
+                                    </View>
                                 </View>
                             )
                         }}
