@@ -7,6 +7,9 @@ import Registration from './src/pages/Registration';
 import HomePage from './src/pages/HomePage';
 import Signin from './src/pages/Signin';
 
+// ** I'd like api calls to be at the highest possible component **
+// import api from './src/services/ApiConfig';
+
 
 const SplashStack = createSwitchNavigator (
   {

@@ -7,6 +7,7 @@ import moment from 'moment';
 const { width, height } = Dimensions.get('window')
 
 import EmptyDailyPlanner from '../components/EmptyDailyPlanner';
+import MonthDownload from '../components/DownLoadingMonthData';
 
 export default class HomePage extends React.Component {
     constructor(props){
@@ -45,7 +46,7 @@ export default class HomePage extends React.Component {
     render() {
         let currDate= this.state.date;
         let itemsArr=this.state.itemsArr;
-        var pair = {
+        let pair = {
             [currDate]: [itemsArr]
         };
         let itemsObj={[currDate]:[]};
@@ -65,6 +66,7 @@ export default class HomePage extends React.Component {
                     <Agenda 
                         selected={currDate}
                         loadItemsForMonth={(month) => {
+                            console.log('this is the month your looking at:::::: ',month);
                             // This prop gets triggered during scrolling potential to drive up
                             // API cost
                             // console.log('API CALL PROBABLY SHOULD HAPPEN HERE TO COLLECT ALL DATA')
@@ -79,6 +81,7 @@ export default class HomePage extends React.Component {
                             // I dont like that ITEM written above is the entire arr(this.state.itermArr)
                             // hence why below we are iterating through state
                             // this prop assumes only to render one item per day....IS THIS THE BEST WAY???
+                            // console.log('day: ',day,'++++ ','item: ', item);
                             return (
                                 <View>
                                     <View style={{alignItems:'center',backgroundColor:'white'}}>
@@ -86,12 +89,15 @@ export default class HomePage extends React.Component {
                                         <Text style={{fontSize:20}}>{moment(day.dayString).format('MMM')}</Text>
                                     </View>
                                     <View>
-                                        <EmptyDailyPlanner />
+                                        <EmptyDailyPlanner
+                                            date={day}
+                                        />
                                     </View>
                                 </View>
                             );
                         }}
                         renderEmptyData={()=>{
+                            // console.log(selectedDate);
                             return(
                                 <View>
                                     <View style={{alignItems:'center',backgroundColor:'white'}}>
@@ -99,7 +105,9 @@ export default class HomePage extends React.Component {
                                         <Text style={{fontSize:20}}>{moment(selectedDate.dateString).format('MMM')}</Text>
                                     </View>
                                     <View>
-                                        <EmptyDailyPlanner />
+                                        <EmptyDailyPlanner
+                                            date={selectedDate} 
+                                        />
                                     </View>
                                 </View>
                             )
@@ -113,7 +121,6 @@ export default class HomePage extends React.Component {
                         style={{}}
                     />
                 </View>
-
             </View>
         )
     }

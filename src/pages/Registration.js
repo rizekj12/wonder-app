@@ -12,7 +12,7 @@ export default class Registration extends Component {
         lastName: "",
         email: "",
         password: "",
-        newId: "",
+        newId: "", // newID for what?
         profilename: "",
         errorMsg: ""
     }
