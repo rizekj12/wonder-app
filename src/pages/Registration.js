@@ -26,14 +26,14 @@ export default class Registration extends Component {
         } = this.state;
         
         const data = {
-            firstName,
-            lastName,
+            // firstName,
+            // lastName,
             email,
             password
         }
-        console.log('inside handleRegister', data)
+        // console.log('inside handleRegister', data)
         api
-            .post("/register", data)
+            .post("/signup", data)
 // ****************************************************************************************************
 // we need a fail safe for when a client is already registered and re-registers with same
 // EMAIL theres a bug when this happens
@@ -59,7 +59,7 @@ export default class Registration extends Component {
         }
         console.log('inside handleLogin', data)
         api
-            .post("/login", data)
+            .post("/signin", data)
             .then(response =>
                 response.status === 200 ? this.props.navigation.navigate("Signin") : this.state.errorMsg
         )
