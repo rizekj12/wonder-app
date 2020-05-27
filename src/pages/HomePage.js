@@ -13,7 +13,7 @@ export default class HomePage extends React.Component {
         super(props);
 
         this.state={
-            name:this.props.navigation.state.params.name,
+            // name:this.props.navigation.state.params.name,
             date:moment().format('YYYY-MM-DD'),
             //itemsArr: //this.props.navigation.state.params.itemsArr
         }
@@ -58,7 +58,7 @@ export default class HomePage extends React.Component {
                     source = {require('../assets/homeCoffee.jpg')} 
                     style = {{width: width, height: 200,}}
                 >
-                    <Text style = {styles.imageText}>{this.state.name}</Text>
+                    {/* <Text style = {styles.imageText}>{this.state.name}</Text> */}
                 </ImageBackground>
 
                 <View style = {styles.dateContainer}>
