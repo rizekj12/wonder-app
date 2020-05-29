@@ -6,6 +6,7 @@ import FacebookLogin from './src/pages/FacebookLogin';
 import Registration from './src/pages/Registration';
 import HomePage from './src/pages/HomePage';
 import Signin from './src/pages/Signin';
+import Profile from './src/pages/Profile';
 
 
 const SplashStack = createSwitchNavigator (
@@ -13,7 +14,8 @@ const SplashStack = createSwitchNavigator (
     Splash,
     FacebookLogin,
     Registration,
-    Signin
+    Signin,
+    // Profile
   },
   {
     initialRouteName: 'Splash'
@@ -28,7 +30,8 @@ const MainNavigator = createStackNavigator (
   {
     SplashStack,
     HomePage,
-    Signin
+    Signin,
+    Profile
   },
   {
     initialRouteName: "SplashStack"
