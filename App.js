@@ -30,7 +30,8 @@ const MainNavigator = createStackNavigator (
   {
     SplashStack,
     HomePage,
-    Signin
+    Signin,
+    // Profile
   },
   {
     initialRouteName: "SplashStack"
