@@ -57,7 +57,7 @@ export default class Registration extends Component {
             email,
             password
         }
-        console.log('inside handleLogin', data)
+        // console.log('inside handleLogin', data)
         api
             .post("/signin", data)
             .then(response =>
