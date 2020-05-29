@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, Dimensions, Image, View, Text } from 'react-native';
 import { Button, Input } from 'react-native-elements';
+import CameraRoll from "@react-native-community/cameraroll";
+
 
 const { width, height }=Dimensions.get('window');
 
@@ -33,6 +35,21 @@ export default class Profile extends React.Component{
             )},
             headerLeft:()=>{null},
     }
+
+    _handleReq=()=>{
+        console.log('initial entrance');
+        CameraRoll.getPhotos({
+            first: 20,
+            // groupTypes:'All',
+        })
+        .then(r=> {
+            console.log('call made and returned');
+            // console.log(r.edges)
+        })
+        .catch((err) => {
+            console.log(err)
+         });
+    }
     render(){
         return(
             <View style={styles.formContainer}>
@@ -50,8 +67,9 @@ export default class Profile extends React.Component{
                     placeholder='Last Name'
                     placeholderTextColor = 'black'
                 />
-                <Image
-                    source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
+                <Button
+                    title='Upload Photo'
+                    onPress={()=>{this._handleReq()}}
                 />
             </View>
         )
