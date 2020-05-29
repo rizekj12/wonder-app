@@ -38,9 +38,9 @@ export default class Registration extends Component {
 // we need a fail safe for when a client is already registered and re-registers with same
 // EMAIL theres a bug when this happens
             .then(response =>
-                response.status === 200 ? this.props.navigation.navigate("HomePage", {
-                    name:data.firstName,
-                    itemsArr:Empty24HrCreation
+                response.status === 200 ? this.props.navigation.navigate("Profile", {
+                    // name:data.firstName,
+                    // itemsArr:Empty24HrCreation
                 }) : this.state.errorMsg
         )
             .catch(() =>
