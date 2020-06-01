@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Dimensions, Image, View, Text } from 'react-native';
-import { Button, Input } from 'react-native-elements';
+import { Button, Input, Avatar, Overlay } from 'react-native-elements';
 import ImagePicker from 'react-native-image-picker';
 
 
@@ -11,6 +11,12 @@ export default class Profile extends React.Component {
     constructor(props){
         super(props);
 
+        this.state={
+            f_name:'',
+            l_name:'',
+            serviceLocations:{},
+            avatarPic: ''
+        }
     }
     
     static navigationOptions={
@@ -38,38 +44,78 @@ export default class Profile extends React.Component {
 
     _handleReq=()=>{
         ImagePicker.showImagePicker({},(response) => {
-            console.log('Response = ', response);
+            
+            this.setState({
+                avatarPic: response.uri
+            })
+            console.log('Response = ', response.uri);
         });
         
     }
+
+    _onChange=(text)=>{
+        console.log(text)
+    }
+
+    _submitProfile=()=>{
+
+    }
+
     render(){
+        // const [visible, setVisible] = useState(false);
+        
+        // const toggleOverlay = () => {
+        //     setVisible(!visible);
+        // };
         return(
             <View style={styles.container}>
+
+                <Avatar
+                    size='xlarge'
+                    rounded
+                    icon={{name: 'user', type: 'font-awesome'}}
+                    source={{ uri: this.state.avatarPic}}
+                    onPress={()=>{this._handleReq()}}
+                    showAccessory
+                />
+
                 <View style={styles.formContainer}>
+
                     <Input
                         containerStyle = {{
                             width: 300,
                         }}
                         placeholder = 'First Name'
                         placeholderTextColor = 'black'
-                    />
+                        onChangeText={(f_name)=>this.setState({f_name: f_name})}
+                        />
                     <Input
                         containerStyle = {{
                             width: 300,
                         }}
                         placeholder='Last Name'
                         placeholderTextColor = 'black'
-                    />
+                        onChangeText={(l_name)=>this.setState({l_name :l_name})}
+                        />
                     <Input 
                         containerStyle={{
                             width: 300,
                         }}
                         placeholder='Work Place'
                         placeholderTextColor='black'
+                        // onChangeText={(text)=>this._onChange(text)}
+                        rightIcon={{
+                            type:'font-awesome', 
+                            name: 'plus',
+                            onPress: () => { alert('my right press') }
+                        }}
                     />
+                    {/* <Overlay isVisible={visible} onBackdropPress={toggleOverlay}>
+                        <Text>Hello from Overlay!</Text>
+                    </Overlay> */}
                     <Button
-                        title='Upload Photo'
-                        onPress={()=>{this._handleReq()}}
+                        title='Save'
+                        // onPress={()=>{this.}}
                     />
                 </View>
             </View>
