@@ -12,13 +12,12 @@ import Profile from './src/pages/Profile';
 const SplashStack = createSwitchNavigator (
   {
     Splash,
-    FacebookLogin,
+    // FacebookLogin,
     Registration,
-    Signin,
-    Profile
+    // Signin
   },
   {
-    initialRouteName: 'Splash'
+    initialRouteName: 'Splash',
   }
 )
 
@@ -30,8 +29,7 @@ const MainNavigator = createStackNavigator (
   {
     SplashStack,
     HomePage,
-    Signin,
-    // Profile
+    Profile
   },
   {
     initialRouteName: "SplashStack"

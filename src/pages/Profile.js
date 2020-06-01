@@ -7,21 +7,21 @@ import ImagePicker from 'react-native-image-picker';
 const { width, height }=Dimensions.get('window');
 
 
-export default class Profile extends React.Component{
-    constructor(){
-        super();
+export default class Profile extends React.Component {
+    constructor(props){
+        super(props);
 
     }
     
     static navigationOptions={
         title: 'Create Profile',
-            headerStyle: {
-              backgroundColor: '#30EA8A',
-            },
-            headerRight: ()=>{(
+        headerStyle: {
+            backgroundColor: '#30EA8A',
+        },
+        headerRight: ()=>{(
                 <Button
                     onPress={() => alert('This is a button!')}
-                    title = {null}
+                    title="Save"
                     color="#fff"
                     icon = {{
                         type: 'font-awesome',
@@ -33,7 +33,7 @@ export default class Profile extends React.Component{
                     }}
                 />
             )},
-            headerLeft:()=>{null},
+        headerLeft:()=>{null},
     }
 
     _handleReq=()=>{
@@ -44,31 +44,45 @@ export default class Profile extends React.Component{
     }
     render(){
         return(
-            <View style={styles.formContainer}>
-                <Input
-                    containerStyle = {{
-                        width: 300,
-                    }}
-                    placeholder = 'First Name'
-                    placeholderTextColor = 'black'
-                />
-                <Input
-                    containerStyle = {{
-                        width: 300,
-                    }}
-                    placeholder='Last Name'
-                    placeholderTextColor = 'black'
-                />
-                <Button
-                    title='Upload Photo'
-                    onPress={()=>{this._handleReq()}}
-                />
+            <View style={styles.container}>
+                <View style={styles.formContainer}>
+                    <Input
+                        containerStyle = {{
+                            width: 300,
+                        }}
+                        placeholder = 'First Name'
+                        placeholderTextColor = 'black'
+                    />
+                    <Input
+                        containerStyle = {{
+                            width: 300,
+                        }}
+                        placeholder='Last Name'
+                        placeholderTextColor = 'black'
+                    />
+                    <Input 
+                        containerStyle={{
+                            width: 300,
+                        }}
+                        placeholder='Work Place'
+                        placeholderTextColor='black'
+                    />
+                    <Button
+                        title='Upload Photo'
+                        onPress={()=>{this._handleReq()}}
+                    />
+                </View>
             </View>
         )
     }
 }
 
 const styles=StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     formContainer:{
         justifyContent: 'space-around',
         marginHorizontal: 50,
