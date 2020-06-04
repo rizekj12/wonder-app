@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { StyleSheet, Dimensions, Image, View, Text } from 'react-native';
 import { Button, Input, Avatar, Overlay } from 'react-native-elements';
 import ImagePicker from 'react-native-image-picker';
@@ -14,7 +14,12 @@ export default class Profile extends React.Component {
         this.state={
             f_name:'',
             l_name:'',
-            serviceLocations:[],
+            serviceLocations:[{
+                workStreet:'',
+                workCity:'',
+                workZip:Number,
+                aka:''
+            }],
             avatarPic: ''
         }
     }
@@ -48,29 +53,21 @@ export default class Profile extends React.Component {
             this.setState({
                 avatarPic: response.uri
             })
-            console.log('Response = ', response.uri);
         });
         
     }
 
     _onChange=(target, text)=>{
-        console.log(this.state)
         this.setState({
             [[target]]:text
         })
-        console.log(this.state)
     }
 
     _submitProfile=()=>{
-
+        console.log(this.state)
     }
 
     render(){
-        // const [visible, setVisible] = useState(false);
-        
-        // const toggleOverlay = () => {
-        //     setVisible(!visible);
-        // };
         let image=this.state.avatarPic?icon={name: 'user', type: 'font-awesome'}:source={uri:this.state.avatarPic}
 
         return(
@@ -94,7 +91,7 @@ export default class Profile extends React.Component {
                         placeholder = 'First Name'
                         placeholderTextColor = 'black'
                         onChangeText={(f_name)=>this._onChange('f_name', f_name)}
-                        />
+                    />
                     <Input
                         containerStyle = {{
                             width: 300,
@@ -102,27 +99,47 @@ export default class Profile extends React.Component {
                         placeholder='Last Name'
                         placeholderTextColor = 'black'
                         onChangeText={(l_name)=>this._onChange('l_name', l_name)}
-                        />
+                    />
                     <Input 
                         containerStyle={{
                             width: 300,
                         }}
-                        placeholder='Work Place'
+                        placeholder='Work Street Address'
                         placeholderTextColor='black'
-                        // onChangeText={(text)=>this._onChange(text)}
-                        rightIcon={{
-                            type:'font-awesome', 
-                            name: 'plus',
-                            onPress: () => { 
-                            return 
-                            (<Overlay>
-                                <Text>Testing</Text>
-                            </Overlay>) }
+                        onChangeText={(text)=>this._onChange('serviceLocations.workStreet',text)}
+                        // rightIcon={{
+                        //     type:'font-awesome', 
+                        //     name: 'plus',
+                        //     onPress: () => {<Overlay />}
+                        // }}
+                    />
+                    <Input
+                        containerStyle = {{
+                            width: 300,
                         }}
+                        placeholder='City'
+                        placeholderTextColor='black'
+                        onChangeText={(text)=>this._onChange('serviceLocations.workCity',text)}
+                    />
+                    <Input
+                        containerStyle = {{
+                            width: 300,
+                        }}
+                        placeholder='Zip Code'
+                        placeholderTextColor='black'
+                        onChangeText={(text)=>this._onChange('serviceLocations.workZip',text)}
+                    />
+                    <Input
+                        containerStyle = {{
+                            width: 300,
+                        }}
+                        placeholder='Known As'
+                        placeholderTextColor='black'
+                        onChangeText={(text)=>this._onChange('serviceLocations.aka',text)}
                     />
                     <Button
                         title='Save'
-                        // onPress={()=>{this.}}
+                        onPress={()=>{this._submitProfile()}}
                     />
                 </View>
             </View>
