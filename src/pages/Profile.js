@@ -14,7 +14,7 @@ export default class Profile extends React.Component {
         this.state={
             f_name:'',
             l_name:'',
-            serviceLocations:{},
+            serviceLocations:[],
             avatarPic: ''
         }
     }
@@ -53,8 +53,12 @@ export default class Profile extends React.Component {
         
     }
 
-    _onChange=(text)=>{
-        console.log(text)
+    _onChange=(target, text)=>{
+        console.log(this.state)
+        this.setState({
+            [[target]]:text
+        })
+        console.log(this.state)
     }
 
     _submitProfile=()=>{
@@ -67,6 +71,8 @@ export default class Profile extends React.Component {
         // const toggleOverlay = () => {
         //     setVisible(!visible);
         // };
+        let image=this.state.avatarPic?icon={name: 'user', type: 'font-awesome'}:source={uri:this.state.avatarPic}
+
         return(
             <View style={styles.container}>
 
@@ -74,7 +80,7 @@ export default class Profile extends React.Component {
                     size='xlarge'
                     rounded
                     icon={{name: 'user', type: 'font-awesome'}}
-                    source={{ uri: this.state.avatarPic}}
+                    // {...image}
                     onPress={()=>{this._handleReq()}}
                     showAccessory
                 />
@@ -87,7 +93,7 @@ export default class Profile extends React.Component {
                         }}
                         placeholder = 'First Name'
                         placeholderTextColor = 'black'
-                        onChangeText={(f_name)=>this.setState({f_name: f_name})}
+                        onChangeText={(f_name)=>this._onChange('f_name', f_name)}
                         />
                     <Input
                         containerStyle = {{
@@ -95,7 +101,7 @@ export default class Profile extends React.Component {
                         }}
                         placeholder='Last Name'
                         placeholderTextColor = 'black'
-                        onChangeText={(l_name)=>this.setState({l_name :l_name})}
+                        onChangeText={(l_name)=>this._onChange('l_name', l_name)}
                         />
                     <Input 
                         containerStyle={{
@@ -107,12 +113,13 @@ export default class Profile extends React.Component {
                         rightIcon={{
                             type:'font-awesome', 
                             name: 'plus',
-                            onPress: () => { alert('my right press') }
+                            onPress: () => { 
+                            return 
+                            (<Overlay>
+                                <Text>Testing</Text>
+                            </Overlay>) }
                         }}
                     />
-                    {/* <Overlay isVisible={visible} onBackdropPress={toggleOverlay}>
-                        <Text>Hello from Overlay!</Text>
-                    </Overlay> */}
                     <Button
                         title='Save'
                         // onPress={()=>{this.}}
