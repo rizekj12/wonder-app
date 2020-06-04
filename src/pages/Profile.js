@@ -3,6 +3,7 @@ import { StyleSheet, Dimensions, Image, View, Text } from 'react-native';
 import { Button, Input, Avatar, Overlay } from 'react-native-elements';
 import ImagePicker from 'react-native-image-picker';
 
+import api from '../services/ApiConfig';
 
 const { width, height }=Dimensions.get('window');
 
@@ -20,7 +21,8 @@ export default class Profile extends React.Component {
                 workZip:Number,
                 aka:''
             }],
-            avatarPic: ''
+            avatarPic: '',
+            errMsg:''
         }
     }
     
@@ -64,7 +66,15 @@ export default class Profile extends React.Component {
     }
 
     _submitProfile=()=>{
-        console.log(this.state)
+        api
+            .post('/createProfile', this.state)
+            .then(r=>
+                r.status===200?
+                    this.props.navigation.navigate("HomePage"):
+                    this.state.errMsg
+            ).catch(() =>
+            this.setState({ errorMsg: "Their was an error storing your profile. Please try again." })
+            );
     }
 
     render(){
@@ -141,6 +151,7 @@ export default class Profile extends React.Component {
                         title='Save'
                         onPress={()=>{this._submitProfile()}}
                     />
+                    <Text>{this.state.errMsg}</Text>
                 </View>
             </View>
         )
