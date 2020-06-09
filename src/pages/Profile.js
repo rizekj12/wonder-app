@@ -3,7 +3,7 @@ import { StyleSheet, Dimensions, Image, View, Text } from 'react-native';
 import { Button, Input, Avatar, Overlay } from 'react-native-elements';
 import ImagePicker from 'react-native-image-picker';
 
-import api from '../services/ApiConfig';
+import { api } from '../services/ApiConfig';
 
 const { width, height }=Dimensions.get('window');
 
@@ -66,13 +66,19 @@ export default class Profile extends React.Component {
     }
 
     _submitProfile=()=>{
+        let data={data: this.state};
+
         api
-            .post('/createProfile', this.state)
-            .then(r=>
+            .post("/createProfile", data)
+            .then(r=>{
+                const data=r.data;
+
                 r.status===200?
-                    this.props.navigation.navigate("HomePage"):
+                    this.props.navigation.navigate("ClientList",{
+                        d: data
+                    }):
                     this.state.errMsg
-            ).catch(() =>
+            }).catch(() =>
             this.setState({ errorMsg: "Their was an error storing your profile. Please try again." })
             );
     }
