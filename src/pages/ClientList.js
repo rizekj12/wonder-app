@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { ListItem } from 'react-native-elements';
+import { Promise } from 'bluebird';
 
 export default class ClientList extends React.Component{
     constructor(props){
@@ -20,22 +21,49 @@ export default class ClientList extends React.Component{
 
     
     render(){
+
+        let dateSelect="2020-06-18";
+        let filteredList=[];
+        let initList=this.state.list;
+        
+        initList.forEach(function(ele){
+            
+            let schedStrng=ele.serviceLocations;
+            // let nxt=schedStrng.service.date;
+
+            schedStrng.forEach(el=>{
+                // console.log(JSON.stringify(el.schedule));
+                let schedArry=el.schedule;
+
+                schedArry.forEach(e=>{
+                    console.log(JSON.stringify(e));
+                })
+            })
+            // console.log(`${ele.local.f_name}===> `, JSON.stringify(schedStrng));
+            // if(dateSelect===ele['serviceLocations']['schedule']['date']){
+            //     filteredList.push(ele);
+            // }
+        })
+
+        // console.log(filteredList);
         return(
             <View>
-                {
-                    this.state.list.map((l, i) => (
-                        <ListItem
-                            key={i}
-                            leftAvatar={{ 
-                                source: { url: l.local.avatarPic},
-                                style: { width: 40, height: 40 } 
-                            }}
-                            title={l.local.f_name}
-                            subtitle={l.local.l_name}
-                            bottomDivider
-                        />
-                    ))
-                }
+                <ScrollView>
+                    {
+                        this.state.list.map((l, i) => (
+                            <ListItem
+                                key={i}
+                                leftAvatar={{ 
+                                    source: { url: l.local.avatarPic},
+                                    style: { width: 40, height: 40 } 
+                                }}
+                                title={l.local.f_name}
+                                subtitle={l.local.l_name}
+                                bottomDivider
+                            />
+                        ))
+                    }
+                </ScrollView>
             </View>
         )
     }
