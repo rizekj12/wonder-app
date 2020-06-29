@@ -37,7 +37,7 @@ export default class ClientList extends React.Component{
 
                 schedArry.forEach(e=>{
                     if(dateSelect.match(e.date)){
-                        console.log(e.date);
+                        // console.log(e.date);
                         filteredList.push(e);
                     };
                 });
