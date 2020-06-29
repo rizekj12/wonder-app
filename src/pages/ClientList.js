@@ -22,7 +22,7 @@ export default class ClientList extends React.Component{
     
     render(){
 
-        let dateSelect="2020-06-18";
+        let dateSelect="2020-06-24";
         let filteredList=[];
         let initList=this.state.list;
         
@@ -36,8 +36,13 @@ export default class ClientList extends React.Component{
                 let schedArry=el.schedule;
 
                 schedArry.forEach(e=>{
-                    console.log(JSON.stringify(e));
-                })
+                    if(dateSelect.match(e.date)){
+                        console.log(e.date);
+                        filteredList.push(e);
+                    };
+                });
+                console.log(filteredList);
+                console.log('finished');
             })
             // console.log(`${ele.local.f_name}===> `, JSON.stringify(schedStrng));
             // if(dateSelect===ele['serviceLocations']['schedule']['date']){
