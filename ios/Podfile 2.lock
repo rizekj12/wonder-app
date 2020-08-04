@@ -232,7 +232,7 @@ PODS:
   - Yoga (1.14.0)
 
 DEPENDENCIES:
-  - DoubleConversion (from `./../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
+  - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/Libraries/FBReactNativeSpec`)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
@@ -273,7 +273,7 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   DoubleConversion:
-    :podspec: "./../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
+    :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
   FBLazyVector:
     :path: "../node_modules/react-native/Libraries/FBLazyVector"
   FBReactNativeSpec:
@@ -369,6 +369,6 @@ SPEC CHECKSUMS:
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
-PODFILE CHECKSUM: 8ebccadff0c7c00f4f718e17a90707ee583159c3
+PODFILE CHECKSUM: ccc76c384d93213bd92d093342de49414eeb60e9
 
 COCOAPODS: 1.9.1

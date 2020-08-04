@@ -61,11 +61,14 @@ export default class Registration extends Component {
         // console.log('inside handleLogin', data)
         api
             .post("/signin", data)
-            .then(response =>
-                response.status === 200 ? this.props.navigation.navigate("HomePage") : this.state.errorMsg
-        )
-            .catch(() =>
-                this.setState({ errorMsg: "Your email and/or password do not match" })
+            .then(response =>{
+                // console.log(response),
+                response.status === 200 ? this.props.navigation.navigate("HomePage",{
+                    db: response.data
+                }) : this.state.errorMsg
+        })
+            .catch((err) =>
+                this.setState({ errorMsg: err })
         );
     }
     render() {
@@ -172,8 +175,8 @@ export default class Registration extends Component {
 
                 <View style = {styles.buttons}>
                     <Button
-                        onPress={() => this.props.navigation.navigate('FacebookLogin')}
-                        title = 'Back'
+                        // onPress={() => this.props.navigation.navigate('FacebookLogin')}
+                        // title = 'Back'
                         titleStyle = {{
                             color: 'black',
                             fontWeight: 'bold',
@@ -183,11 +186,11 @@ export default class Registration extends Component {
                             borderColor: 'black',
                             width: 100,
                         }}
-                        icon = {{
-                            type: 'font-awesome',
-                            name: 'arrow-left',
-                            size: 15,
-                        }}
+                        // icon = {{
+                        //     type: 'font-awesome',
+                        //     name: 'arrow-left',
+                        //     size: 15,
+                        // }}
                     />
                 </View>
             </KeyboardAvoidingView>

@@ -37,7 +37,7 @@ export default class Signin extends Component {
             />
           </View>
           
-          <View style={styles.buttons}>
+          {/* <View style={styles.buttons}>
             <Button 
               onPress={() => this.props.navigation.navigate('Registration')}
               title = 'Back'
@@ -56,7 +56,7 @@ export default class Signin extends Component {
                 size: 15,
               }}
             />
-          </View>
+          </View> */}
         </KeyboardAvoidingView>
       )
     }

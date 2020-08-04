@@ -72,11 +72,13 @@ export default class Profile extends React.Component {
             .post("/createProfile", data)
             .then(r=>{
                 const data=r.data;
+                console.log(r.data);
 
                 r.status===200?
-                    this.props.navigation.navigate("ClientList",{
+                    this.props.navigation.navigate("HomePage",{
                         d: data
-                    }):
+                    })
+                    :
                     this.state.errMsg
             }).catch(() =>
             this.setState({ errorMsg: "Their was an error storing your profile. Please try again." })

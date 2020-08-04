@@ -16,10 +16,10 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* wonderFrontTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* wonderFrontTests.m */; };
-		478EF05AD208E717B4A8455C /* libPods-wonderFront-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2FE9FB824D35A139460F35E /* libPods-wonderFront-tvOSTests.a */; };
-		68875F16235E26417B0D9541 /* libPods-wonderFrontTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F8BB8EA8520880E155E3B7 /* libPods-wonderFrontTests.a */; };
-		8F82D335C28FBDAC448D381E /* libPods-wonderFront.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 541F83BBAB57BC39DC1A24C4 /* libPods-wonderFront.a */; };
-		CAAACD2EA3CBFEB38D46132C /* libPods-wonderFront-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7B2B8A6927079C9435BA9D4 /* libPods-wonderFront-tvOS.a */; };
+		3B87793B0E05C45BD759BCE8 /* libPods-whichdayz-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CC92CD2901AE4606D7DC98 /* libPods-whichdayz-tvOSTests.a */; };
+		40321830E872D49C0A27C5AD /* libPods-whichdayz-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E32864B1CDF64BADA9FE9F51 /* libPods-whichdayz-tvOS.a */; };
+		98286525617A65A6E43068FA /* libPods-whichdayz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1DC24055BBE56FD47A64A39 /* libPods-whichdayz.a */; };
+		989856DBC5532F123D7C1F81 /* libPods-whichdayzTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0539D21A8B221B520E6B3205 /* libPods-whichdayzTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,32 +41,40 @@
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* wonderFrontTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wonderFrontTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* whichdayzTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = whichdayzTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* wonderFrontTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wonderFrontTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* wonderFront.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wonderFront.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0539D21A8B221B520E6B3205 /* libPods-whichdayzTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-whichdayzTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* WhichDayz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhichDayz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = wonderFront/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = wonderFront/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = wonderFront/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = wonderFront/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = wonderFront/main.m; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* wonderFront-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wonderFront-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* wonderFront-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "wonderFront-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A58FDAF3CAF117F296D5717 /* Pods-whichdayz-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whichdayz-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-whichdayz-tvOSTests/Pods-whichdayz-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		22CC92CD2901AE4606D7DC98 /* libPods-whichdayz-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-whichdayz-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E47B1E0B4A5D006451C7 /* whichdayz-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "whichdayz-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* whichdayz-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "whichdayz-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E6838D1AF07DCC7D911F192 /* Pods-wonderFrontTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wonderFrontTests.release.xcconfig"; path = "Target Support Files/Pods-wonderFrontTests/Pods-wonderFrontTests.release.xcconfig"; sourceTree = "<group>"; };
+		2F44BF9164F560110F7055D2 /* Pods-whichdayzTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whichdayzTests.release.xcconfig"; path = "Target Support Files/Pods-whichdayzTests/Pods-whichdayzTests.release.xcconfig"; sourceTree = "<group>"; };
 		4147B865276620AA7040E834 /* Pods-wonderFront-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wonderFront-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-wonderFront-tvOSTests/Pods-wonderFront-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		541F83BBAB57BC39DC1A24C4 /* libPods-wonderFront.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wonderFront.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57D5E28246B0642088F336B7 /* Pods-wonderFront.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wonderFront.release.xcconfig"; path = "Target Support Files/Pods-wonderFront/Pods-wonderFront.release.xcconfig"; sourceTree = "<group>"; };
+		6D6A8D0C4837A8DB5F1C1C08 /* Pods-whichdayz-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whichdayz-tvOS.release.xcconfig"; path = "Target Support Files/Pods-whichdayz-tvOS/Pods-whichdayz-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		772C9DCC17AABA1747BA65FA /* Pods-wonderFront-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wonderFront-tvOS.release.xcconfig"; path = "Target Support Files/Pods-wonderFront-tvOS/Pods-wonderFront-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		830C2BFA4358E107457E0076 /* Pods-wonderFront-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wonderFront-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-wonderFront-tvOS/Pods-wonderFront-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		85F8BB8EA8520880E155E3B7 /* libPods-wonderFrontTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wonderFrontTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9478CA881A35FA2CE914833E /* Pods-whichdayzTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whichdayzTests.debug.xcconfig"; path = "Target Support Files/Pods-whichdayzTests/Pods-whichdayzTests.debug.xcconfig"; sourceTree = "<group>"; };
+		990227C0397B73F14DEDBB04 /* Pods-whichdayz-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whichdayz-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-whichdayz-tvOSTests/Pods-whichdayz-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ABDE2E7ACF4A8E58819AAA59 /* Pods-wonderFrontTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wonderFrontTests.debug.xcconfig"; path = "Target Support Files/Pods-wonderFrontTests/Pods-wonderFrontTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B4608C121854A3215DAEE425 /* Pods-wonderFront-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wonderFront-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-wonderFront-tvOSTests/Pods-wonderFront-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		B7B2B8A6927079C9435BA9D4 /* libPods-wonderFront-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wonderFront-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C39BEE5207C93C9BED8D2A85 /* Pods-whichdayz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whichdayz.release.xcconfig"; path = "Target Support Files/Pods-whichdayz/Pods-whichdayz.release.xcconfig"; sourceTree = "<group>"; };
 		C3BBCACFF5A92504EF1DB6EB /* Pods-wonderFront.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wonderFront.debug.xcconfig"; path = "Target Support Files/Pods-wonderFront/Pods-wonderFront.debug.xcconfig"; sourceTree = "<group>"; };
-		E2FE9FB824D35A139460F35E /* libPods-wonderFront-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wonderFront-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1DC24055BBE56FD47A64A39 /* libPods-whichdayz.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-whichdayz.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E32864B1CDF64BADA9FE9F51 /* libPods-whichdayz-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-whichdayz-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		F03C88241EF11D602516DD27 /* Pods-whichdayz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whichdayz.debug.xcconfig"; path = "Target Support Files/Pods-whichdayz/Pods-whichdayz.debug.xcconfig"; sourceTree = "<group>"; };
+		FF5E6AF89067663565515C56 /* Pods-whichdayz-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whichdayz-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-whichdayz-tvOS/Pods-whichdayz-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68875F16235E26417B0D9541 /* libPods-wonderFrontTests.a in Frameworks */,
+				989856DBC5532F123D7C1F81 /* libPods-whichdayzTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F82D335C28FBDAC448D381E /* libPods-wonderFront.a in Frameworks */,
+				98286525617A65A6E43068FA /* libPods-whichdayz.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAAACD2EA3CBFEB38D46132C /* libPods-wonderFront-tvOS.a in Frameworks */,
+				40321830E872D49C0A27C5AD /* libPods-whichdayz-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				478EF05AD208E717B4A8455C /* libPods-wonderFront-tvOSTests.a in Frameworks */,
+				3B87793B0E05C45BD759BCE8 /* libPods-whichdayz-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,10 +149,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				541F83BBAB57BC39DC1A24C4 /* libPods-wonderFront.a */,
-				B7B2B8A6927079C9435BA9D4 /* libPods-wonderFront-tvOS.a */,
-				E2FE9FB824D35A139460F35E /* libPods-wonderFront-tvOSTests.a */,
-				85F8BB8EA8520880E155E3B7 /* libPods-wonderFrontTests.a */,
+				E1DC24055BBE56FD47A64A39 /* libPods-whichdayz.a */,
+				E32864B1CDF64BADA9FE9F51 /* libPods-whichdayz-tvOS.a */,
+				22CC92CD2901AE4606D7DC98 /* libPods-whichdayz-tvOSTests.a */,
+				0539D21A8B221B520E6B3205 /* libPods-whichdayzTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -174,10 +182,10 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* wonderFront.app */,
-				00E356EE1AD99517003FC87E /* wonderFrontTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* wonderFront-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* wonderFront-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* WhichDayz.app */,
+				00E356EE1AD99517003FC87E /* whichdayzTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* whichdayz-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* whichdayz-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,6 +201,14 @@
 				4147B865276620AA7040E834 /* Pods-wonderFront-tvOSTests.release.xcconfig */,
 				ABDE2E7ACF4A8E58819AAA59 /* Pods-wonderFrontTests.debug.xcconfig */,
 				2E6838D1AF07DCC7D911F192 /* Pods-wonderFrontTests.release.xcconfig */,
+				F03C88241EF11D602516DD27 /* Pods-whichdayz.debug.xcconfig */,
+				C39BEE5207C93C9BED8D2A85 /* Pods-whichdayz.release.xcconfig */,
+				FF5E6AF89067663565515C56 /* Pods-whichdayz-tvOS.debug.xcconfig */,
+				6D6A8D0C4837A8DB5F1C1C08 /* Pods-whichdayz-tvOS.release.xcconfig */,
+				990227C0397B73F14DEDBB04 /* Pods-whichdayz-tvOSTests.debug.xcconfig */,
+				1A58FDAF3CAF117F296D5717 /* Pods-whichdayz-tvOSTests.release.xcconfig */,
+				9478CA881A35FA2CE914833E /* Pods-whichdayzTests.debug.xcconfig */,
+				2F44BF9164F560110F7055D2 /* Pods-whichdayzTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -200,9 +216,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* wonderFrontTests */ = {
+		00E356ED1AD99517003FC87E /* whichdayzTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "wonderFrontTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "whichdayzTests" */;
 			buildPhases = (
 				1D7A8C068A8EC3DCA2DAB179 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -214,14 +230,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = wonderFrontTests;
+			name = whichdayzTests;
 			productName = wonderFrontTests;
-			productReference = 00E356EE1AD99517003FC87E /* wonderFrontTests.xctest */;
+			productReference = 00E356EE1AD99517003FC87E /* whichdayzTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* wonderFront */ = {
+		13B07F861A680F5B00A75B9A /* whichdayz */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "wonderFront" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "whichdayz" */;
 			buildPhases = (
 				C376F666F815B6FB3BAF1E60 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -235,14 +251,14 @@
 			);
 			dependencies = (
 			);
-			name = wonderFront;
+			name = whichdayz;
 			productName = wonderFront;
-			productReference = 13B07F961A680F5B00A75B9A /* wonderFront.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* WhichDayz.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* wonderFront-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* whichdayz-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "wonderFront-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "whichdayz-tvOS" */;
 			buildPhases = (
 				0A716EA29A01260E3DBF0657 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
@@ -255,14 +271,14 @@
 			);
 			dependencies = (
 			);
-			name = "wonderFront-tvOS";
+			name = "whichdayz-tvOS";
 			productName = "wonderFront-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* wonderFront-tvOS.app */;
+			productReference = 2D02E47B1E0B4A5D006451C7 /* whichdayz-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* wonderFront-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* whichdayz-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "wonderFront-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "whichdayz-tvOSTests" */;
 			buildPhases = (
 				6DED579C66602271932613A0 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
@@ -274,9 +290,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "wonderFront-tvOSTests";
+			name = "whichdayz-tvOSTests";
 			productName = "wonderFront-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* wonderFront-tvOSTests.xctest */;
+			productReference = 2D02E4901E0B4A5D006451C7 /* whichdayz-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -286,14 +302,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0940;
-				ORGANIZATIONNAME = Facebook;
+				ORGANIZATIONNAME = workingHeads;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = FZRD5XN7QC;
+						DevelopmentTeam = 63A77M3Z94;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -306,7 +322,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "wonderFront" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "whichdayz" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -320,10 +336,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* wonderFront */,
-				00E356ED1AD99517003FC87E /* wonderFrontTests */,
-				2D02E47A1E0B4A5D006451C7 /* wonderFront-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* wonderFront-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* whichdayz */,
+				00E356ED1AD99517003FC87E /* whichdayzTests */,
+				2D02E47A1E0B4A5D006451C7 /* whichdayz-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* whichdayz-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -392,7 +408,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-wonderFront-tvOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-whichdayz-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -414,7 +430,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-wonderFrontTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-whichdayzTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -450,7 +466,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-wonderFront-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-whichdayz-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -463,7 +479,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-wonderFront/Pods-wonderFront-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-whichdayz/Pods-whichdayz-resources.sh",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -502,7 +518,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-wonderFront/Pods-wonderFront-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-whichdayz/Pods-whichdayz-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C376F666F815B6FB3BAF1E60 /* [CP] Check Pods Manifest.lock */ = {
@@ -520,7 +536,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-wonderFront-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-whichdayz-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -607,12 +623,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* wonderFront */;
+			target = 13B07F861A680F5B00A75B9A /* whichdayz */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* wonderFront-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* whichdayz-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -632,7 +648,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ABDE2E7ACF4A8E58819AAA59 /* Pods-wonderFrontTests.debug.xcconfig */;
+			baseConfigurationReference = 9478CA881A35FA2CE914833E /* Pods-whichdayzTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -649,13 +665,13 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/wonderFront.app/wonderFront";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/whichdayz.app/whichdayz";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E6838D1AF07DCC7D911F192 /* Pods-wonderFrontTests.release.xcconfig */;
+			baseConfigurationReference = 2F44BF9164F560110F7055D2 /* Pods-whichdayzTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -669,54 +685,56 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/wonderFront.app/wonderFront";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/whichdayz.app/whichdayz";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C3BBCACFF5A92504EF1DB6EB /* Pods-wonderFront.debug.xcconfig */;
+			baseConfigurationReference = F03C88241EF11D602516DD27 /* Pods-whichdayz.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = FZRD5XN7QC;
+				CURRENT_PROJECT_VERSION = 2;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 63A77M3Z94;
 				INFOPLIST_FILE = wonderFront/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.1.3;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = wonderFront;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.whichday;
+				PRODUCT_NAME = WhichDayz;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57D5E28246B0642088F336B7 /* Pods-wonderFront.release.xcconfig */;
+			baseConfigurationReference = C39BEE5207C93C9BED8D2A85 /* Pods-whichdayz.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FZRD5XN7QC;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 63A77M3Z94;
 				INFOPLIST_FILE = wonderFront/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.1.3;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = wonderFront;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.whichday;
+				PRODUCT_NAME = WhichDayz;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 830C2BFA4358E107457E0076 /* Pods-wonderFront-tvOS.debug.xcconfig */;
+			baseConfigurationReference = FF5E6AF89067663565515C56 /* Pods-whichdayz-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -744,7 +762,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 772C9DCC17AABA1747BA65FA /* Pods-wonderFront-tvOS.release.xcconfig */;
+			baseConfigurationReference = 6D6A8D0C4837A8DB5F1C1C08 /* Pods-whichdayz-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -772,7 +790,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B4608C121854A3215DAEE425 /* Pods-wonderFront-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 990227C0397B73F14DEDBB04 /* Pods-whichdayz-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -792,14 +810,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.wonderFront-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/wonderFront-tvOS.app/wonderFront-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/whichdayz-tvOS.app/whichdayz-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4147B865276620AA7040E834 /* Pods-wonderFront-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 1A58FDAF3CAF117F296D5717 /* Pods-whichdayz-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -819,7 +837,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.wonderFront-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/wonderFront-tvOS.app/wonderFront-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/whichdayz-tvOS.app/whichdayz-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -870,6 +888,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"INFOPLIST_FILE[sdk=*]" = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -916,6 +935,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"INFOPLIST_FILE[sdk=*]" = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -926,7 +946,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "wonderFrontTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "whichdayzTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -935,7 +955,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "wonderFront" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "whichdayz" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -944,7 +964,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "wonderFront-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "whichdayz-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -953,7 +973,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "wonderFront-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "whichdayz-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -962,7 +982,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "wonderFront" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "whichdayz" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
