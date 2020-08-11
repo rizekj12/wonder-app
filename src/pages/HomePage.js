@@ -28,7 +28,7 @@ export default class HomePage extends React.Component {
         headerRight: ()=>{(
             <Button
                 onPress={() => alert('This is a button!')}
-                title = {null}
+                title = {"title"}
                 color="#fff"
                 icon = {{
                     type: 'font-awesome',

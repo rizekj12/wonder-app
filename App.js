@@ -25,7 +25,7 @@ const SplashStack = createSwitchNavigator (
 )
 
 SplashStack.navigationOptions = {
-  headerShown: false,
+  headerShown: true,
 };
 
 const MainNavigator = createStackNavigator (
