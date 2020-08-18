@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, ImageBackground, Dimensions} from 'react-native';
+import { View, StyleSheet, Text, ImageBackground, Dimensions, TouchableOpacity} from 'react-native';
 import { Button, ListItem } from 'react-native-elements';
 import {Agenda} from 'react-native-calendars';
 import moment from 'moment';
+import CreateSchedule from './CreateSchedule'
+import { NavigationContainer } from '@react-navigation/native';
 
 const { width, height } = Dimensions.get('window')
 
 import EmptyDailyPlanner from '../components/EmptyDailyPlanner';
 import ClientList from './ClientList';
+import { NavigationEvents } from 'react-navigation';
 
 export default class HomePage extends React.Component {
     constructor(props){
@@ -56,7 +59,11 @@ export default class HomePage extends React.Component {
         console.log('this is the selected date : ',currDate)
         return(
             <View style = {styles.container}>
-            
+                 <TouchableOpacity onPress= {() => this.props.navigation.navigate('CreateSch')}>
+                <Text>+</Text>
+            </TouchableOpacity>
+            {/* <Button
+            onPress= {() => this.props.navigation.navigate('Create')}/> */}
                 <ImageBackground 
                     source = {require('../assets/homeCoffee.jpg')} 
                     style = {{width: width, height: 200,}}

@@ -10,6 +10,7 @@ import HomePage from './src/pages/HomePage';
 import Signin from './src/pages/Signin';
 import Profile from './src/pages/Profile';
 import ClientList from './src/pages/ClientList';
+import CreateSchedule from './src/pages/CreateSchedule';
 
 
 const SplashStack = createSwitchNavigator (
@@ -34,6 +35,7 @@ const MainNavigator = createStackNavigator (
     HomePage,
     Profile,
     ClientList,
+    CreateSch: CreateSchedule
   },
   {
     initialRouteName: "SplashStack"
