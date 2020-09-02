@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { View, Button, ScrollView, Text, DatePickerAndroid, Platform, TouchableOpacity} from 'react-native';
 import moment from 'moment'
-import RNDateTimePicker from '@react-native-community/datetimepicker';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 
@@ -24,10 +23,26 @@ const createSchedule = () => {
         return (
            <View>
 
-         <Button title="Show Date Picker" onPress={showDatePicker} />
+         <Button title="Date" onPress={showDatePicker} />
          <DateTimePickerModal
          isVisible={isDatePickerVisible}
-         mode='datetime'
+         mode='date'
+         onConfirm={handleConfirm}
+         onCancel={hideDatePicker}
+         />
+
+<Button title="Start Time" onPress={showDatePicker} />
+         <DateTimePickerModal
+         isVisible={isDatePickerVisible}
+         mode='time'
+         onConfirm={handleConfirm}
+         onCancel={hideDatePicker}
+         />
+
+<Button title="End Time" onPress={showDatePicker} />
+         <DateTimePickerModal
+         isVisible={isDatePickerVisible}
+         mode='time'
          onConfirm={handleConfirm}
          onCancel={hideDatePicker}
          />

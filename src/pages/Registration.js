@@ -138,20 +138,6 @@ export default class Registration extends Component {
                         onChangeText={(password) => this.setState({password})}
                     />
                     <Text style = {styles.passwordText}>Password must be at least 8 characters long and contain a number.</Text>
-                    <Button
-                        title = 'Sign Up!'
-                        titleStyle = {{
-                            color: 'white',
-                            fontWeight: 'bold',
-                        }}
-                        buttonStyle = {{
-                            backgroundColor: 'transparent',
-                            borderRadius: 25,
-                            borderWidth: 2,
-                            borderColor: 'white',
-                        }}
-                        onPress = {() => this.handleRegister()}
-                    />
                     
                     {/*This is the sign up button*/}
                     <Button
@@ -169,6 +155,22 @@ export default class Registration extends Component {
                         }}
                         // testing how to change screens
                         onPress={() => this.handleLogin()}
+                    />
+
+
+<Button
+                        title = 'Sign Up!'
+                        titleStyle = {{
+                            color: 'white',
+                            fontWeight: 'bold',
+                        }}
+                        buttonStyle = {{
+                            backgroundColor: 'transparent',
+                            borderRadius: 25,
+                            borderWidth: 2,
+                            borderColor: 'white',
+                        }}
+                        onPress = {() => this.handleRegister()}
                     />
                     <Text>{this.state.errorMsg}</Text>
                 </View>
