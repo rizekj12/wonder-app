@@ -229,7 +229,7 @@ PODS:
     - React
   - RNScreens (2.4.0):
     - React
-  - RNVectorIcons (6.6.0):
+  - RNVectorIcons (7.0.0):
     - React
   - Yoga (1.14.0)
 
@@ -372,7 +372,7 @@ SPEC CHECKSUMS:
   RNDateTimePicker: 843eca1c684369861c7dccccb6632f3c104c009c
   RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
   RNScreens: b5c0e1b2b04512919e78bd3898e144a157ce2363
-  RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
+  RNVectorIcons: da6fe858f5a65d7bbc3379540a889b0b12aa5976
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
 PODFILE CHECKSUM: 2023134694d489450887a82b3e0da440730d4d4d

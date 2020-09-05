@@ -5,9 +5,18 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 
 const createSchedule = () => {
+
+  const [date, setDate] = useState('')
+
+  const [startTime, setStartTime] = useState('')
+
+  const [endTime, setEndTime] = useState('')
+
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
  
-  const [isTimePickerVisible, setTimePickerVisibility] = useState(false);
+  const [isStartTimePickerVisible, setStartTimePickerVisibility] = useState(false);
+
+  const [isEndTimePickerVisible, setEndTimePickerVisibility] = useState(false);
 
   const hideDatePicker = () => {
     setDatePickerVisibility(false);
@@ -17,24 +26,36 @@ const createSchedule = () => {
     setDatePickerVisibility(true);
   };
 
-  const hideTimePicker = () => {
-    setTimePickerVisibility(false);
+  const hideStartTimePicker = () => {
+    setStartTimePickerVisibility(false);
   };
 
-  const showTimePicker = () => {
-    setTimePickerVisibility(true);
+  const hideEndTimePicker = () => {
+    setEndTimePickerVisibility(false);
+  };
+
+  const showStartTimePicker = () => {
+    setStartTimePickerVisibility(true);
+  };
+
+  const showEndTimePicker = () => {
+    setEndTimePickerVisibility(true);
   };
 
   const handleConfirm = (time) => {
-    console.warn("A time has been picked: ", time);
-    hideTimePicker();
-  };
-
-  const handleTimeConfirm = (datetime) => {
-    console.warn("A date has been picked: ", datetime);
+    // console.warn("A date has been picked: ", time);
     hideDatePicker();
   };
+
+  const handleStartTimeConfirm = (datetime) => {
+    // console.warn("A time has been picked: ", datetime);
+    hideTimePicker();
+  };
   
+  const handleEndTimeConfirm = (datetime) => {
+    // console.warn("A time has been picked: ", datetime);
+    hideEndTimePicker();
+  };
         return (
            <View>
 
@@ -46,23 +67,23 @@ const createSchedule = () => {
          onCancel={hideDatePicker}
          />
   
-  <Button title="Start Time" onPress={showTimePicker} />
+  <Button title="Start Time" onPress={showStartTimePicker} />
          <DateTimePickerModal
-         isVisible={isTimePickerVisible}
+         isVisible={isStartTimePickerVisible}
          mode='time'
-         onConfirm={handleTimeConfirm}
-         onCancel={hideTimePicker}
+         onConfirm={handleStartTimeConfirm}
+         onCancel={hideStartTimePicker}
          />
 
-<Button title="End Time" onPress={showTimePicker} />
+<Button title="End Time" onPress={showEndTimePicker} />
          <DateTimePickerModal
-         isVisible={isTimePickerVisible}
+         isVisible={isEndTimePickerVisible}
          mode='time'
-         onConfirm={handleTimeConfirm}
-         onCancel={hideTimePicker}
+         onConfirm={handleEndTimeConfirm}
+         onCancel={hideEndTimePicker}
          />
 
-         <Button/>
+         <Button title="Submit"/>
 
            </View>
         )
